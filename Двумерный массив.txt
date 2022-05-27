@@ -1,0 +1,70 @@
+﻿#include "stdafx.h"
+#include <iostream>
+#include <math.h>
+#include <stdio.h>
+using namespace std;
+
+
+int main()
+{
+        int K, N;
+        cout << "enter K:";
+        cin >> K;
+
+
+        if (4 <= K <= 6)
+        {
+                N = 1;
+                int A[4][4] = { {1, 5, 9, 13}, { 2, 14, 10, 14 }, { 3, 7, 2, 15 }, { 4, 8, 12, 16 } };
+                for (int j = 0; j < 4; j++)
+                {
+                        for (int i = 0; i < 4; i++)
+                        {
+                                A[i][j] *= K / N;
+
+
+                                cout << "A[" << j << "][" << i << "]" << A[i][j] << "  ";
+                        }
+                        cout << endl;
+                }
+        }
+                
+        else if (K < 4)
+        {
+                N = 2;
+                int A[4][4] = { {13, 9, 5, 4}, {2, 6, 10, 14}, {15, 16, 7, 3}, {4, 8, 12, 16} };
+                for (int j = 0; j < 4; j++)
+                {
+                        for (int i = 0; i < 4; i++)
+                        {
+                                A[i][j] *= K / N;
+
+
+                                cout << "A[" << j << "][" << i << "]" << A[i][j] << "  ";
+                        }
+                        cout << endl;
+                }
+        }
+
+
+        else
+        {
+                N = 3;
+                int A[4][4] = { {0, 15, 5, 13}, {2, 64, 10, 9}, {4, 32, 6, 5}, {8, 7, 2, 1} };
+                for (int j = 0; j < 4; j++)
+                {
+                        for (int i = 0; i < 4; i++)
+                        {
+                                A[i][j] *= K / N;
+
+
+                                cout << "A[" << j << "][" << i << "]" << A[i][j] << "  ";
+                        }
+                        cout << endl;
+                }
+        }
+
+
+        system("pause");
+        return 0;
+}

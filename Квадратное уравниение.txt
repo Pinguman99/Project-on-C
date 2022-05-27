@@ -1,0 +1,43 @@
+﻿#include<iostream>
+#include"cmath"
+using namespace std;
+
+
+float diskr(float a, float b, float c)
+{
+        float x = b*b - 4 * a*c;
+        return x;
+}
+float perv(float a, float b, float d)
+{
+        float x = (-b+sqrt(d))/(2*a);
+        return x;
+}
+float vtor(float a, float b, float d)
+{
+        float x = (-b - sqrt(d)) / (2 * a);
+        return x;
+}
+
+
+int main()
+{
+        float a, b, c, d;
+        cout << "a=";
+        cin >> a;
+        cout << endl << "b=";
+        std::cin >> b;
+        cout << endl << "c=";
+        cin >> c;
+        d = diskr(a, b, c);
+        if (d < 0) 
+        {
+                cout << "KOPHEI HET";
+        }
+        else
+        {
+                cout << "x1=" << perv(a, b, d) << "; x2=" << vtor(a, b, d)<<endl<<endl;
+        }
+        system("pause");
+        return 0;
+}

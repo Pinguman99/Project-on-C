@@ -1,0 +1,108 @@
+﻿#include <iostream>
+#include <conio.h>
+using namespace std;
+struct Info
+{
+        char *fio;// ÔÈÎ
+        int birthday[3], quantity, number;//äåíü ðîæäåíèÿ, êîë-âî ÷ëåíîâ áðèãàäû, íîìåð áðèãàäû
+
+
+};
+
+
+void main()
+{
+        int number, quantity, date[3];
+        bool k = 0;
+        int i;
+        float average_age=0.0, *age;
+        
+
+
+        system("mode 200,300");
+        setlocale(LC_ALL, "RU");
+        
+        cin >> date[0];//òåêóùèå äåíü
+        
+        cin >> date[1];//ìåñÿö
+        
+        cin >> date[2];//ãîä
+
+
+        cout << "ââåäèòå íîìåð áðèãàäû: ";
+        cin >> number;
+
+
+        cout << "ââåäèòå êîë-âî ÷ëåíîâ áðèãàäû: ";
+        cin >> quantity;
+
+
+        age = new float[quantity];
+        Info *human = new Info[sizeof(Info)*quantity];
+        begin:
+        for ( i = 0; i < quantity; i++)
+        {
+                cout << "\n";
+
+
+                int a = 0, j = 0;
+                cout << "ÔÈÎ\n";
+                while (a != 13)
+                {
+                        a = _getch();
+                        (human + i)->fio = new char[++j];
+                        cin >> (human + i)->fio;
+                        
+                }
+
+
+                printf("Äàòà ðîæäåíèÿ\n");
+                cin >> (human + i)->birthday[0];//äåíü
+                cin >> (human + i)->birthday[1];//ìåñÿö
+                cin >> (human + i)->birthday[2];//ãîä ðîæäåíèÿ
+                cout << "\t";
+
+
+                *(age + i) = (float)date[2] - ((human + i)->birthday[2]);//âîçâðàñò 
+                if ((date[1]) <= ((human + i)->birthday[1]))
+                {
+                        if (date[0] <= ((human + i)->birthday[0]))
+                                *(age + i) = *(age + i) + 1;
+                }
+                cout << *(age + i);
+                average_age = *(age + i) + average_age;// ñðåäíèé âîçâðàñò
+                if (k == 1)
+                {
+                        i = quantity;
+                }
+        }
+
+
+
+
+        system("cls");
+        for (int j = 0; j < 3; j++)
+                cout << date[j] << "." << endl;
+        cout << "íîìåð áðèãàäû: " << number << "\nêîë - âî ÷ëåíîâ áðèãàäû : " << quantity << endl;
+        for (int j = 0; j < quantity; j++)
+        {
+                cout << (human + j)->fio << "  ";
+                for (int e = 0; e < 3; e++)
+                        cout << (human + i)->birthday[e] << ".";
+                cout << "  " << *(age + j) << "\n";
+        }
+        cout << "\n" << average_age / quantity << endl;
+        cout << sizeof(Info) << endl;
+
+
+
+
+        cout << "õîòèòå ðåäàêòèðîâàòü èíôîðìàöèþ îäíîãî èç ÷ëåíîâ áðèãàäû? 1 - äà, 0 - íåò" << endl;
+        cin >> k;
+        if (k == 1)
+        {
+                cout << "ââåäèòå íîìåð ÷åëîâåêà" << endl;
+                cin >> i;
+                goto begin;
+        }
+}
